@@ -46,9 +46,15 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				registries = {
+					"github:mason-org/mason-registry",
+					"github:Crashdummyy/mason-registry",
+				},
+			})
 		end,
 	},
+
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
@@ -62,6 +68,7 @@ return {
 					"clangd",
 					"zls",
 					"ols",
+					"csharp_ls",
 				}, -- auto-install these
 				automatic_installation = true,
 			})
@@ -248,28 +255,6 @@ return {
 			end
 		end,
 	},
-
-	-- Csharp ls
-	{
-		"seblj/roslyn.nvim",
-		lazy = true,
-		config = function()
-			on_attach = function(client, bufnr)
-				--Keymap
-			end
-		end,
-	},
-
-	{
-		"tris203/rzls.nvim",
-		lazy = true,
-		config = function()
-			on_attach = function(client, bufnr)
-				--Keymap
-			end
-		end,
-	},
-
 	-- Snippets (for Razor/C#)
 	{ "hrsh7th/vim-vsnip", lazy = true },
 	{ "OrangeT/vim-csharp", lazy = true },
