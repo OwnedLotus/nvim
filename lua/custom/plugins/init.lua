@@ -2,4 +2,19 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup {
+        -- ignore_filetypes = { cpp = true },
+        color = {
+          suggestion_color = '#ffffff',
+        },
+        keymaps = {
+          accept_suggestion = '<S-Enter>',
+        },
+      }
+    end,
+  },
+}
