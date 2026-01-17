@@ -10,11 +10,28 @@ This repository is a Neovim configuration using Lua and the lazy.nvim plugin man
 ├── lazy-lock.json          # Plugin lockfile
 └── lua/
     ├── config/             # Configuration modules
+    │   ├── keys.lua        # Global keybindings
     │   ├── lazy.lua        # Plugin manager setup
     │   ├── lsp.lua         # LSP configuration and keybindings
     │   ├── diagnostics.lua # Diagnostic settings
     │   └── options.lua     # Basic editor options
     └── plugins/            # Plugin specifications
+        ├── autopair.lua    # Auto bracket pairing
+        ├── blink.lua       # Completion engine
+        ├── comment.lua     # Commenting plugin
+        ├── dap.lua         # Debug adapter protocol
+        ├── gitsigns.lua    # Git integration
+        ├── lualine.lua     # Status line
+        ├── mason.lua       # LSP server manager
+        ├── mason-lspconfig.lua # LSP auto-configuration
+        ├── noice.lua       # UI/notifications
+        ├── roslyn.lua      # C# LSP
+        ├── supermaven.lua  # AI completion
+        ├── telescope.lua   # Fuzzy finder
+        ├── todo-comments.lua # TODO highlighting
+        ├── tokyodark.lua   # Color scheme
+        ├── trouble.lua     # Diagnostics viewer
+        └── ts.lua          # Treesitter
 ```
 
 ## Build/Lint/Test Commands
@@ -92,11 +109,27 @@ end
 
 ### Keybinding Conventions
 - Use leader key (`<leader>`) for custom mappings
-- Include descriptive text for which-key integration:
-```lua
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-```
-- Follow existing patterns: `<leader>f` for find/file operations, `<leader>g` for git/operations
+- Include descriptive text for which-key integration
+- Current keybinding patterns:
+  - **File operations** (`<leader>f`): `<leader>ff` (find files), `<leader>fg` (live grep), `<leader>fs` (grep string)
+  - **Window management** (`<leader>s`): `<leader>sv` (split vertical), `<leader>sh` (split horizontal)
+  - **Navigation**: `<leader>h/j/k/l>` for pane navigation
+  - **Terminal**: `<leader>t` to open terminal in new pane
+  - **Debugging**: `<F5>` (continue), `<F10>` (step over), `<F11>` (step into), `<F12>` (step out), `<leader>b` (toggle breakpoint)
+  - **LSP**: `gd` (definition), `gD` (declaration), `gr` (references), `gi` (implementation), `K` (hover), `<C-k>` (signature help), `<leader>rn` (rename), `<leader>ca` (code action)
+  - **Session**: `<leader>q` (close pane), `<leader>Q` (quit nvim)
+
+### Current Plugin Ecosystem
+- **Completion**: `blink.cmp` (modern completion engine) with LSP, path, snippets, and buffer sources
+- **Fuzzy finder**: `telescope.nvim` for file finding, live grep, and string search
+- **LSP**: `mason.nvim` + `mason-lspconfig.nvim` for LSP server management, with `roslyn.nvim` for C#
+- **Debugging**: `nvim-dap` with UI integration (`nvim-dap-ui`, `nvim-dap-virtual-text`)
+- **Git**: `gitsigns.nvim` for git status signs and operations
+- **UI**: `noice.nvim` for UI/notifications, `lualine.nvim` for status line, `tokyodark.nvim` theme
+- **Utilities**: `Comment.nvim` for commenting, `nvim-autopairs` for bracket pairing, `todo-comments.nvim` for TODO highlighting
+- **Diagnostics**: `trouble.nvim` for diagnostics viewer
+- **AI**: `supermaven-nvim` for AI-powered completion
+- **Syntax**: `nvim-treesitter` for syntax highlighting
 
 ### LSP Configuration
 - Attach keybindings in `LspAttach` autocmd

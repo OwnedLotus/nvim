@@ -7,10 +7,10 @@ vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split pane horizontally' }
 vim.keymap.set('n', '<leader>t', '<C-w>s<C-w>j:terminal<CR>', { desc = 'Open Terminal' })
 
 -- navigate panes
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Navigate pane left' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Navigate pane down' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Navigate pane up' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Navigate pane right' })
+vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Navigate pane left' })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = 'Navigate pane down' })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = 'Navigate pane up' })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Navigate pane right' })
 
 -- close current pane
 vim.keymap.set('n', '<leader>q', ':close<CR>', { desc = 'Close current pane' })
