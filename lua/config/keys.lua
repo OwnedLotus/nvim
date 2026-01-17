@@ -1,13 +1,10 @@
 -- General keybindings that aren't tied to specific plugins
 
--- Split pane vertical leader+s
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split pane vertically' })
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split pane horizontally' })
 
--- Open Terminal in current pane
-vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = 'Open Terminal' })
 -- Open Terminal in new pane
-vim.keymap.set('n', '<leader>T', '<C-w>v:terminal<CR>', { desc = 'Open Terminal' })
+vim.keymap.set('n', '<leader>t', '<C-w>s<C-w>j:terminal<CR>', { desc = 'Open Terminal' })
 
 -- navigate panes
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Navigate pane left' })
