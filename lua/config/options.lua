@@ -5,3 +5,5 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.relativenumber = true
 vim.opt.number = true
+
+vim.opt.clipboard = "unnamedplus"
